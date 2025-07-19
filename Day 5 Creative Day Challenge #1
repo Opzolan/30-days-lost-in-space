@@ -1,0 +1,86 @@
+36#include "Arduino.h"
+
+const byte GREEN_LIGHT = 8;
+const byte RED_LIGHT = 9;
+const byte YELLOW_LIGHT = 10;
+const byte BLUE_LIGHT = 11;
+const byte CLEAR_LIGHT = 12;
+const byte SECOND_RED_LIGHT = 13;
+
+const byte SWITCH_ONE = 2;
+const byte SWITCH_TWO = 3;
+const byte SWITCH_THREE = 4;
+
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(GREEN_LIGHT, OUTPUT);
+  pinMode(RED_LIGHT, OUTPUT);
+  pinMode(YELLOW_LIGHT, OUTPUT);
+  pinMode(BLUE_LIGHT, OUTPUT);
+  pinMode(CLEAR_LIGHT, OUTPUT);
+  pinMode(SECOND_RED_LIGHT, OUTPUT);
+  pinMode(SWITCH_ONE, INPUT);
+  pinMode(SWITCH_TWO, INPUT);
+  pinMode(SWITCH_THREE, INPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if ((digitalRead(SWITCH_ONE) == HIGH) && (digitalRead(SWITCH_TWO) == LOW) && (digitalRead(SWITCH_THREE) == LOW)) {
+    digitalWrite(GREEN_LIGHT, HIGH);
+    digitalWrite(RED_LIGHT, LOW);
+    digitalWrite(YELLOW_LIGHT, LOW);
+    digitalWrite(BLUE_LIGHT, LOW);
+    digitalWrite(CLEAR_LIGHT, LOW);
+    digitalWrite(SECOND_RED_LIGHT, LOW);
+  } 
+  if ((digitalRead(SWITCH_ONE) == LOW) && (digitalRead(SWITCH_TWO) == HIGH) && (digitalRead(SWITCH_THREE) == LOW)) {
+    digitalWrite(GREEN_LIGHT, LOW);
+    digitalWrite(RED_LIGHT, HIGH);
+    digitalWrite(YELLOW_LIGHT, LOW);
+    digitalWrite(BLUE_LIGHT, LOW);
+    digitalWrite(CLEAR_LIGHT, LOW);
+    digitalWrite(SECOND_RED_LIGHT, LOW);
+  } 
+  if ((digitalRead(SWITCH_ONE) == LOW) && (digitalRead(SWITCH_TWO) == LOW) && (digitalRead(SWITCH_THREE) == HIGH)) {
+    digitalWrite(GREEN_LIGHT, LOW);
+    digitalWrite(RED_LIGHT, LOW);
+    digitalWrite(YELLOW_LIGHT, HIGH);
+    digitalWrite(BLUE_LIGHT, LOW);
+    digitalWrite(CLEAR_LIGHT, LOW);
+    digitalWrite(SECOND_RED_LIGHT, LOW);
+  }
+  if ((digitalRead(SWITCH_ONE) == HIGH) && (digitalRead(SWITCH_TWO) == HIGH) && (digitalRead(SWITCH_THREE) == LOW)) {
+    digitalWrite(GREEN_LIGHT, LOW);
+    digitalWrite(RED_LIGHT, LOW);
+    digitalWrite(YELLOW_LIGHT, LOW);
+    digitalWrite(BLUE_LIGHT, HIGH);
+    digitalWrite(CLEAR_LIGHT, LOW);
+    digitalWrite(SECOND_RED_LIGHT, LOW);
+  }
+  if ((digitalRead(SWITCH_ONE) == HIGH) && (digitalRead(SWITCH_TWO) == LOW) && (digitalRead(SWITCH_THREE) == HIGH)) {
+    digitalWrite(GREEN_LIGHT, LOW);
+    digitalWrite(RED_LIGHT, LOW);
+    digitalWrite(YELLOW_LIGHT, LOW);
+    digitalWrite(BLUE_LIGHT, LOW);
+    digitalWrite(CLEAR_LIGHT, HIGH);
+    digitalWrite(SECOND_RED_LIGHT, LOW);
+  }
+  if ((digitalRead(SWITCH_ONE) == HIGH) && (digitalRead(SWITCH_TWO) == HIGH) && (digitalRead(SWITCH_THREE) == HIGH)) {
+    digitalWrite(GREEN_LIGHT, LOW);
+    digitalWrite(RED_LIGHT, LOW);
+    digitalWrite(YELLOW_LIGHT, LOW);
+    digitalWrite(BLUE_LIGHT, LOW);
+    digitalWrite(CLEAR_LIGHT, LOW);
+    digitalWrite(SECOND_RED_LIGHT, HIGH);
+  } else {
+    digitalWrite(GREEN_LIGHT, LOW);
+    digitalWrite(RED_LIGHT, LOW);
+    digitalWrite(YELLOW_LIGHT, LOW);
+    digitalWrite(BLUE_LIGHT, LOW);
+    digitalWrite(CLEAR_LIGHT, LOW);
+    digitalWrite(SECOND_RED_LIGHT, LOW); 
+  }
+}
